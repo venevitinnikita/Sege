@@ -12,14 +12,14 @@ namespace Sege
     class AbstractModule
     {
     protected:
-        EventBus *eventBus;
+        std::shared_ptr<EventBus> pEventBus;
 
         virtual void onStart() = 0;
 
     public:
         AbstractModule();
 
-        void start(EventBus &_eventBus);
+        void start(std::shared_ptr<EventBus> &_pEventBus);
 
         virtual ~AbstractModule() = default;
     };

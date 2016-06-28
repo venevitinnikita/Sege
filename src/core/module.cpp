@@ -5,12 +5,12 @@
 #include "module.hpp"
 
 Sege::AbstractModule::AbstractModule() :
-        eventBus(nullptr)
+        pEventBus(nullptr)
 {
 }
 
-void Sege::AbstractModule::start(EventBus &_eventBus)
+void Sege::AbstractModule::start(std::shared_ptr<EventBus> &_pEventBus)
 {
-    eventBus = &_eventBus;
+    pEventBus = std::shared_ptr<EventBus>(_pEventBus);
     onStart();
 }
